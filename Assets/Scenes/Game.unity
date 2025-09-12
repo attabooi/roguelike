@@ -837,6 +837,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8712031061343841700, guid: 7ff3e46f670906b4fb75333607ad50b3, type: 3}
+      propertyPath: m_TileAssetArray.Array.data[1].m_RefCount
+      value: 214
+      objectReference: {fileID: 0}
+    - target: {fileID: 8712031061343841700, guid: 7ff3e46f670906b4fb75333607ad50b3, type: 3}
+      propertyPath: m_TileAssetArray.Array.data[2].m_RefCount
+      value: 167
+      objectReference: {fileID: 0}
+    - target: {fileID: 8712031061343841700, guid: 7ff3e46f670906b4fb75333607ad50b3, type: 3}
+      propertyPath: m_Tiles.Array.data[11].second.m_TileIndex
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8712031061343841700, guid: 7ff3e46f670906b4fb75333607ad50b3, type: 3}
+      propertyPath: m_TileSpriteArray.Array.data[1].m_RefCount
+      value: 214
+      objectReference: {fileID: 0}
+    - target: {fileID: 8712031061343841700, guid: 7ff3e46f670906b4fb75333607ad50b3, type: 3}
+      propertyPath: m_TileSpriteArray.Array.data[2].m_RefCount
+      value: 167
+      objectReference: {fileID: 0}
+    - target: {fileID: 8712031061343841700, guid: 7ff3e46f670906b4fb75333607ad50b3, type: 3}
+      propertyPath: m_Tiles.Array.data[11].second.m_TileSpriteIndex
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
