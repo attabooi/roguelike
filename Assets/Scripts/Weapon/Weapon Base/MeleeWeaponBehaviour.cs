@@ -28,14 +28,22 @@ public class MeleeWeaponBehaviour : MonoBehaviour
         Destroy(gameObject, destroyAfterSeconds);
     }
 
-    protected virtual void OnTriggerEnter2D(Collider2D collision)
+    protected virtual void OnTriggerEnter2D(Collider2D col)
     {
-        if (collision.CompareTag("Enemy"))
+        if (col.CompareTag("Enemy"))
         {
-            EnemyStats enemy = collision.GetComponent<EnemyStats>();   
+            EnemyStats enemy = col.GetComponent<EnemyStats>();   
             enemy.TakeDamage(currentDamage);
          
         }
+        else if (col.CompareTag("Prop"))
+        {
+            if (col.gameObject.TryGetComponent(out BreakableProps breakable))
+            {
+                breakable.TakeDamage(currentDamage);
+            }
+        }
     }
+
 
 }

@@ -87,6 +87,14 @@ public class ProjectileWeaponBehaviour : MonoBehaviour
             enemy.TakeDamage(currentDamage); //make sure to use currentDamage instead of weaponData.damage
             ReducePierce();
         }
+        else if (col.CompareTag("Prop"))
+        {
+            if(col.gameObject.TryGetComponent(out BreakableProps breakable))
+            {
+                breakable.TakeDamage(currentDamage);
+                ReducePierce();
+            }
+        }
     }
 
     void ReducePierce() //destroy once pierce is 0

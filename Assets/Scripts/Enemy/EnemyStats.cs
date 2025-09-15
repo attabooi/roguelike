@@ -6,9 +6,9 @@ public class EnemyStats : MonoBehaviour
     public EnemyScriptableObjects enemyData;
 
     //current stats
-    float currentHealth;
-    float currentMoveSpeed;
-    float currentDamage;
+    [HideInInspector] public float currentHealth;
+    [HideInInspector] public float currentMoveSpeed;
+    [HideInInspector] public float currentDamage;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -33,5 +33,17 @@ public class EnemyStats : MonoBehaviour
     public void Kill()
     {
         Destroy(gameObject);
+    }
+
+
+    private void OnCollisionStay2D(Collision2D col)
+    {
+        //Reference the script from the collided collider and deal damage using TakeDamage()
+        if (col.gameObject.CompareTag("Player"))
+        {
+            PlayerStats player = col.gameObject.GetComponent<PlayerStats>();
+            player.TakeDamage(currentDamage); //make sure to use current damage instead of weaponData in case any damage multipliers in the future
+
+        }
     }
 }
