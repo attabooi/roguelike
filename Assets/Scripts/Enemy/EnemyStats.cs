@@ -11,6 +11,8 @@ public class EnemyStats : MonoBehaviour
     [HideInInspector] public float currentDamage;
 
 
+    public float despawnDistance = 20f;
+    Transform player;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
@@ -19,7 +21,21 @@ public class EnemyStats : MonoBehaviour
         currentDamage = enemyData.Damage;
 
     }
+    void Start()
+    {
+       
+        player = FindObjectOfType<PlayerStats>().transform;
 
+    }
+
+    private void Update()
+    {
+        
+        if(Vector2.Distance(transform.position, player.position) >= despawnDistance)
+        {
+            ReturnEnemy();
+        }
+    }
     // Update is called once per frame
     public void TakeDamage(float dmg)
     {
@@ -45,5 +61,19 @@ public class EnemyStats : MonoBehaviour
             player.TakeDamage(currentDamage); //make sure to use current damage instead of weaponData in case any damage multipliers in the future
 
         }
+    }
+
+
+    private void OnDestroy()
+    {
+        EnemySpawner es = FindObjectOfType<EnemySpawner>();
+        es.OnenemyKilled();
+
+    }
+
+    void ReturnEnemy()
+    {
+        EnemySpawner es = FindObjectOfType<EnemySpawner>();
+        transform.position = player.position + es.relativeSpawnPoints[Random.Range(0, es.relativeSpawnPoints.Count)].position;
     }
 }

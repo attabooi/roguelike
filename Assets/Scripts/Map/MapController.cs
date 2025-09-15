@@ -128,7 +128,7 @@ public class MapController : MonoBehaviour
     {
         optimizerCooldown -= Time.deltaTime;
 
-            if(optimizerCooldown <= 0f)
+        if(optimizerCooldown <= 0f)
         {
             optimizerCooldown = optimizerCooldownDur;
 
@@ -138,6 +138,7 @@ public class MapController : MonoBehaviour
             return;
 
         }
+
         foreach (GameObject chunk in spawnedChunks)
         {
             opDist = Vector3.Distance(player.transform.position, chunk.transform.position);
