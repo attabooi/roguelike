@@ -1,5 +1,6 @@
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Rendering.Universal.Internal;
 
 
 [CreateAssetMenu(fileName = "WeaponScriptableObject", menuName = "ScriptableObjects/Weapon")]
@@ -26,4 +27,16 @@ public class WeaponScriptableObject : ScriptableObject
     int pierce;
     public int Pierce { get => pierce; private set => pierce = value; }
 
+    [SerializeField]
+    int level; //Not meant to be modified in the game[Only in Editor]
+    public int Level { get => level; private set => level = value; }
+
+    [SerializeField]
+    GameObject nextLevelPrefab; //The prefab of the next level i.e. what the object becomes when it level up
+                          //Not to be confused with the prefab to be spawned at the next level 
+    public GameObject NextLevelPrefab { get => nextLevelPrefab; private set => nextLevelPrefab = value; }
+
+    [SerializeField]
+    Sprite icon; //Not mean to be modified in gmae [Only in Editor]
+    public Sprite Icon { get => icon; private set => icon = value; }
 }
